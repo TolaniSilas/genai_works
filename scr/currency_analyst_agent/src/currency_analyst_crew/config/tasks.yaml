@@ -1,0 +1,21 @@
+# src/currency_analyst_crew/config/tasks.yaml
+real_time_currency_task:
+  description: >
+    Perform real-time currency analysis based on current exchange rates. Focus on:
+    1. Providing accurate conversions between any two currencies upon request.
+    2. Comparing the relative strength of currencies at the current moment.
+    3. Explaining currency relationships in clear and concise language.
+    4. Offering actionable insights for users seeking to understand the current
+       status of currencies across different countries.
+    
+    Always use the latest available exchange rate data. Do not use historical
+    or predictive data beyond the current market snapshot.
+  expected_output: >
+    A text-based response that:
+    - Converts currencies accurately as requested by the user.
+    - Compares and explains the relative strength of currencies in real-time.
+    - Provides clear, concise, and structured insights about currency relationships.
+    - Uses markdown formatting where appropriate for clarity (headings, lists, bold).
+  agent: currency_analyst
+  markdown: true,  # enable markdown formatting for the final output.
+  output_file: analysis.md  # specify the output file name for the currency analysis report.
