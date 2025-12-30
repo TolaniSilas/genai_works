@@ -30,10 +30,9 @@ def home_page():
     st.markdown(
         """
         ## 🧠 About the Project
-
-        **Currency Analyst AI** is a financial intelligence system built using **CrewAI**.  
-        It fetches *real-time exchange rate data* and provides **insightful analysis**
-        about currency relationships, macroeconomic factors, and market trends.
+        **Currency Analyst AI Agent** is a financial intelligence system built using **CrewAI**.  
+        It fetches *real-time exchange rate data* and provides **insightful analysis** about currency relationships. 
+        It does **not rely on historical data** - everything is based on the current market snapshot.
 
         ### 🔍 Key Features
         - Fetches live foreign exchange data  
