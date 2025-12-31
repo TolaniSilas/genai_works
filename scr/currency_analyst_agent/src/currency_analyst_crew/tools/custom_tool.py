@@ -20,7 +20,7 @@ exchange_rate_api_key = os.getenv("EXCHANGE_RATE_API_KEY")
 class SupportedCurrenciesTool(BaseTool):
     """
     Tool for retrieving all supported currency codes and their corresponding
-    countries from the Exchange Rate API.
+    countries from the Exchange Rate API. Exchange Rate API supports 166 currency codes. 
 
     This tool fetches the complete list of currency codes and corresponding currency name
     that the API can handle for real-time conversion. It is designed to provide

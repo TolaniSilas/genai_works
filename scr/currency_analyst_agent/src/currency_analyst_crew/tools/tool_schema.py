@@ -7,5 +7,5 @@ class SupportedCurrenciesInput(BaseModel):
 
 class CurrencyConverterInput(BaseModel):
     """"Input schema for CurrencyConverterTool."""
-    from_currency = Field(..., description="The base or source currency code (e.g., USD, NGN) to convert from.")
-    to_currency = Field(..., description="The target currency code (e.g., EUR) to convert to.")
+    from_currency: str = Field(..., description="The base or source currency code (e.g., USD, NGN) to convert from.")
+    to_currency: str = Field(..., description="The target currency code (e.g., EUR) to convert to.")
