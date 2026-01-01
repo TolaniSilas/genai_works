@@ -12,17 +12,17 @@ def run():
     """
 
     inputs = {
-        "user_query": "what is the current exchange rate between nigeria currency and UK Pounds currency? Also, provide insights on factors that might have influenced this rate recently."
+        "user_query": "what is the current exchange rate between nigeria currency and Germany currency? Also, provide insights on factors that might have influenced this rate recently."
         }
 
     # create and run the crew.
     result = CurrencyAnalystCrew().crew().kickoff(inputs=inputs)
 
     # print the result.
-    print("\n\n=== FINAL REPORT ===\n\n")
+    # print("\n\n=== FINAL REPORT ===\n\n")
     print(result.raw)
 
-    print("\n\nReport has been saved to output/report.md")
+    # print("\n\nReport has been saved to output/report.md")
 
 if __name__ == "__main__":
     run()

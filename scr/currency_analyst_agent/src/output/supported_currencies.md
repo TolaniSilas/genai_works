@@ -1,9 +1,9 @@
 ```
-# Supported Currencies by ExchangeRate API
+# Supported Currencies
 
-Here is a list of all supported currency codes and their corresponding countries or regions available through the ExchangeRate API:
+Here is a list of all supported currency codes along with their corresponding country or region:
 
-- **AED** - *United Arab Emirates Dirham*
+- **AED** - *UAE Dirham*
 - **AFN** - *Afghan Afghani*
 - **ALL** - *Albanian Lek*
 - **AMD** - *Armenian Dram*
@@ -14,7 +14,7 @@ Here is a list of all supported currency codes and their corresponding countries
 - **AWG** - *Aruban Florin*
 - **AZN** - *Azerbaijani Manat*
 - **BAM** - *Bosnia and Herzegovina Convertible Mark*
-- **BBD** - *Barbadian Dollar*
+- **BBD** - *Barbados Dollar*
 - **BDT** - *Bangladeshi Taka*
 - **BGN** - *Bulgarian Lev*
 - **BHD** - *Bahraini Dinar*
@@ -48,10 +48,10 @@ Here is a list of all supported currency codes and their corresponding countries
 - **ERN** - *Eritrean Nakfa*
 - **ETB** - *Ethiopian Birr*
 - **EUR** - *Euro*
-- **FJD** - *Fijian Dollar*
+- **FJD** - *Fiji Dollar*
 - **FKP** - *Falkland Islands Pound*
 - **FOK** - *Faroese Króna*
-- **GBP** - *British Pound Sterling*
+- **GBP** - *Pound Sterling*
 - **GEL** - *Georgian Lari*
 - **GGP** - *Guernsey Pound*
 - **GHS** - *Ghanaian Cedi*
@@ -87,7 +87,7 @@ Here is a list of all supported currency codes and their corresponding countries
 - **KZT** - *Kazakhstani Tenge*
 - **LAK** - *Lao Kip*
 - **LBP** - *Lebanese Pound*
-- **LKR** - *Sri Lankan Rupee*
+- **LKR** - *Sri Lanka Rupee*
 - **LRD** - *Liberian Dollar*
 - **LSL** - *Lesotho Loti*
 - **LYD** - *Libyan Dinar*

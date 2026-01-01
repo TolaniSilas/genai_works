@@ -24,6 +24,7 @@ class CurrencyAnalystCrew():
         return Agent(
             config=self.agents_config['currency_analyst'],  # type: ignore[index]
             verbose=True,
+            memory=True,
             tools=[
                 supported_currencies_tool, 
                 currency_converter_tool
