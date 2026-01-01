@@ -4,10 +4,11 @@ import os
 import requests
 from dotenv import load_dotenv
 from pydantic import BaseModel
-from typing import List, Type
+from typing import Type
 from crewai.tools import BaseTool
 from .tool_schema import CurrencyConverterInput
 from .tool_schema import SupportedCurrenciesInput
+
 
 
 load_dotenv()

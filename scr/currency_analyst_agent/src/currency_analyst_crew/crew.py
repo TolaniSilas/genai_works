@@ -1,8 +1,16 @@
 # src/currency_analyst_crew/crew.py
 
 from typing import List
-from crewai import BaseAgent, Agent, Task, Crew, Process, agent, task, crew
-from crewai.tools.serper import SerperDevTool  # optional web search tool
+from crewai import Agent, Task, Crew, Process
+from crewai.project import CrewBase, agent, crew, task
+from crewai.agents.agent_builder.base_agent import BaseAgent
+from currency_analyst_crew.tools.custom_tool import SupportedCurrenciesTool, CurrencyConverterTool
+
+
+supported_currencies_tool = SupportedCurrenciesTool()
+
+currency_converter_tool = CurrencyConverterTool()
+
 
 @CrewBase
 class CurrencyAnalystCrew():
@@ -17,11 +25,8 @@ class CurrencyAnalystCrew():
             config=self.agents_config['currency_analyst'],  # type: ignore[index]
             verbose=True,
             tools=[
-                # Core conversion tool; you would wrap your API call here
-                # e.g., PairConversionTool(),
-                
-                # Optional: real-time context for insights
-                SerperDevTool()  
+                supported_currencies_tool, 
+                currency_converter_tool
             ]
         )
 
@@ -50,3 +55,4 @@ class CurrencyAnalystCrew():
             process=Process.sequential,
             verbose=True,
         )
+
