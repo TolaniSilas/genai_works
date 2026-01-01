@@ -43,8 +43,8 @@ class CurrencyAnalystCrew():
     def supported_currencies_task(self) -> Task:
         return Task(
             config=self.tasks_config['supported_currencies_task'],  # type: ignore[index]
-            markdown=True,
-            output_file='output/supported_currencies.md'
+            # markdown=True,
+            # output_file='output/supported_currencies.md'
         )
 
     @crew
