@@ -32,19 +32,19 @@ class CurrencyAnalystCrew():
         )
 
     @task
-    def real_time_currency_task(self) -> Task:
-        return Task(
-            config=self.tasks_config['real_time_currency_task'],  # type: ignore[index]
-            markdown=True,
-            output_file='output/report.md'
-        )
-
-    @task
     def supported_currencies_task(self) -> Task:
         return Task(
             config=self.tasks_config['supported_currencies_task'],  # type: ignore[index]
             # markdown=True,
             # output_file='output/supported_currencies.md'
+        )    
+
+    @task
+    def real_time_currency_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['real_time_currency_task'],  # type: ignore[index]
+            markdown=True,
+            output_file='output/report.md'
         )
 
     @crew

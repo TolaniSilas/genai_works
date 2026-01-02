@@ -1,13 +1,11 @@
 # src/currency_analyst/api/routes/currency.py
 
 from fastapi import APIRouter, HTTPException
-from src.currency_analyst.api.schemas.currency_schema import (
+from schemas.currency_schema import (
     CurrencyAnalysisRequest,
     CurrencyAnalysisResponse,
 )
-from src.currency_analyst.api.services.agent_service import analyze_currency_service
-
-from src.currency_analyst_crew.main import run
+from currency_analyst_agent.src.currency_analyst_crew.main import run
 
 
 # define the router.
@@ -23,7 +21,6 @@ async def analyze_currency(request: CurrencyAnalysisRequest):
 
     Accepts JSON input and returns an AI-generated insight.
     """
-
 
     try:
         result = await run(request)

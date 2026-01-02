@@ -2,7 +2,8 @@
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .routes import currency
+from routes import currency
+import uvicorn
 
 
 # initialize fastapi app.
@@ -15,7 +16,7 @@ app = FastAPI(
 # cors setup (allow the streamlit's frontend user interface to interact with this api).
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, replace with your frontend URL
+    allow_origins=["*"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -33,3 +34,9 @@ def home():
 @app.get("/health")
 def health_check():
     return {"status": "ok", "message": "Currency Analyst API is running!"}
+
+
+if __name__ == "__main__":
+
+    uvicorn.run(app)
+

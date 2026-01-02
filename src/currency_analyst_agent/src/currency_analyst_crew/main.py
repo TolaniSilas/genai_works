@@ -17,19 +17,24 @@ def run(inputs: dict):
     # create and run the crew.
     result = CurrencyAnalystCrew().crew().kickoff(inputs=inputs)
 
-    # print the result.
-    print("\n\n=== FINAL REPORT ===\n\n")
-    print(result.raw)
+    # # print the result.
+    # print("\n\n=== FINAL REPORT ===\n\n")
+    # print(result)
 
-    print("\n\nReport has been saved to output/report.md")
+    # print("\n\nReport has been saved to output/report.md")
 
     return result.raw
+
 
 if __name__ == "__main__":
 
     inputs = {
         "user_query": "what is the current exchange rate between USA currency and Germany currency? Also, provide insights on factors that might have influenced this rate recently."
         }
+
+    # inputs = {
+    #     "user_query": "i would like to know all the supported currency codes."
+    # }
     
     
     run(inputs)
