@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import requests
 import time
@@ -6,8 +7,11 @@ import random
 # configure the streamlit page.
 st.set_page_config(page_title="💱 Currency Analyst AI", page_icon="💹", layout="centered")
 
-# define backend api url.
-api_url = "http://localhost:8000/currency/analyze"
+# backend analyze endpoint (override in Docker / Compose via CURRENCY_API_URL).
+api_url = os.getenv(
+    "CURRENCY_API_URL",
+    "http://localhost:8000/currency/analyze",
+)
 
 # initialize session state page.
 if "page" not in st.session_state:
@@ -84,27 +88,32 @@ def chat_page():
 
         # fetch ai agent response by sending a request to the backend (api url).
         with st.chat_message("assistant"):
-            
             try:
-                
-                # make api request to backend.
-                response = requests.get(api_url)
+                http_response = requests.post(
+                    api_url,
+                    json={"query": user_prompt},
+                    headers={"Content-Type": "application/json"},
+                    timeout=120,
+                )
+                http_response.raise_for_status()
 
-                # parse the response obtained from the backend.
-                if response.status_code == 200:
-                    ai_text = response.json().get(
-                        "analysis",
-                        "⚠️ The AI agent didn't return any analysis. Please try again.",
-                    )                
+                payload = http_response.json()
+                ai_text = payload.get("response")
+                if not ai_text:
+                    ai_text = (
+                        "⚠️ The AI agent didn't return any analysis. Please try again."
+                    )
 
-                # handle api error responses.
-                else:
-                    ai_text = f"⚠️ API Error: {response.status_code}"
-             
-            # handle exceptions during api request. 
-            except Exception as e:
-                
-                # provide fallback.
+            except requests.HTTPError as e:
+                detail = None
+                try:
+                    detail = e.response.json().get("detail")
+                except Exception:
+                    detail = e.response.text if e.response is not None else None
+                status = e.response.status_code if e.response is not None else "unknown"
+                ai_text = f"⚠️ API Error ({status}): {detail or str(e)}"
+
+            except requests.RequestException as e:
                 fallback_responses = [
                     "I'm analyzing the latest forex data...",
                     "Let's check recent currency trends together!",
