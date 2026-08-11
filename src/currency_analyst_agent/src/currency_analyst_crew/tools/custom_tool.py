@@ -1,5 +1,3 @@
-# src/currency_analyst_crew/tools/custom_tool.py
-
 import os
 import requests
 from dotenv import load_dotenv
@@ -8,7 +6,6 @@ from typing import Type
 from crewai.tools import BaseTool
 from .tool_schema import CurrencyConverterInput
 from .tool_schema import SupportedCurrenciesInput
-
 
 
 load_dotenv()
@@ -29,6 +26,7 @@ class SupportedCurrenciesTool(BaseTool):
     when performing conversions or comparisons. This tool does not provide
     exchange rates or historical data.
     """
+
     name: str = "Supported Currencies Tool"
     description: str = (
         "Fetches all currency codes and their corresponding currency name supported "
@@ -70,16 +68,20 @@ class CurrencyConverterTool(BaseTool):
     currencies.
 
     This tool fetches the latest available exchange rate for a specified
-    currency pair and returns the current rate. It is designed strictly
-    for real-time currency rate lookup and does not support amount-based
-    conversions, historical data, trend analysis, or future predictions.
+    currency pair and returns the current rate. It is designed for real-time
+    currency rate lookup and amount-based conversions via amount × rate
+    (where the returned rate is the converted value of 1 unit of the base
+    currency). It does not support historical data, trend analysis, or
+    future predictions.
     """
+
     name: str = "Currency Converter Tool"
     description: str = (
         "Retrieves the current real-time exchange rate between a specified "
-        "base or source currency and a target currency. The tool returns only the "
-        "latest exchange rate for the currency pair and does not perform "
-        "amount-based conversions or provide historical or predictive data."
+        "base or source currency and a target currency. Returns the latest "
+        "rate for the currency pair, which can be used for amount-based "
+        "conversions as amount × rate (rate equals the value of 1 unit of "
+        "the base currency). Does not provide historical or predictive data."
     )
     args_schema: Type[BaseModel] = CurrencyConverterInput
     api_key: str = exchange_rate_api_key
