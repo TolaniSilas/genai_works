@@ -1,15 +1,28 @@
-# src/currency_analyst/api/schemas/currency_schema.py
-
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 class CurrencyAnalysisRequest(BaseModel):
     """Schema for user request to analyze currencies."""
 
     query: str = Field(
         ...,
-        example=["what is the current exchange rate between USA currency and Germany currency?", "what's the current exchange rate between USA currency and Mexico currency?"],
-        description="User's natural language query or question."
+        examples=[
+            "what is the current exchange rate between USA currency and Germany currency?",
+            "what's the current exchange rate between USD and MXN?"
+            ],
+        description="User's natural language query or question.",
+        min_length=1
     )
+
+    @field_validator('query')
+    @classmethod
+    def validate_query(cls, v:str) -> str:
+        cleaned_query = v.strip()
+
+        if not cleaned_query:
+            raise ValueError("Query must not be empty or whitespace only.")
+
+        return cleaned_query
+
 
 
 class CurrencyAnalysisResponse(BaseModel):

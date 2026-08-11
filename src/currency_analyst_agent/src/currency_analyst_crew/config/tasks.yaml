@@ -9,7 +9,7 @@ supported_currencies_task:
     3. Ensuring the list reflects only currencies that can be used for
        real-time conversion or currencies provided by the exchangerate api within the system.
 
-    This task is intended to provide reference context for users and the agent on {user_query},
+    This task is intended to provide reference context for users and the agent on {query},
     and should not include exchange rate values or historical information. You should only consider
     this tool or task if information about the supported currencies is clearly required to answer user queries.
   expected_output: >
@@ -24,17 +24,17 @@ supported_currencies_task:
 
 real_time_currency_task:
   description: >
-    Perform real-time currency analysis on {user_query} based on current exchange rates. Focus on:
+    Perform real-time currency analysis on {query} based on current exchange rates. Focus on:
     1. Providing accurate conversions between any two currencies upon request.
     2. Comparing the relative strength of currencies at the current moment.
     3. Explaining currency relationships in clear and concise language.
     4. Offering actionable insights for users seeking to understand the current
        status of currencies across different countries.
     
-    Always use the latest available exchange rate data to provide response on {user_query}. Do not use historical
+    Always use the latest available exchange rate data to provide response on {query}. Do not use historical
     or predictive data beyond the current market snapshot.
   expected_output: >
-    A text-based response on {user_query} that:
+    A text-based response on {query} that:
     - Converts currencies accurately as requested by the user.
     - Compares and explains the relative strength of currencies in real-time.
     - Provides clear, concise, and structured insights about currency relationships.

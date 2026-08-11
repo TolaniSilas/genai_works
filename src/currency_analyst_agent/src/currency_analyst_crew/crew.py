@@ -1,5 +1,3 @@
-# src/currency_analyst_crew/crew.py
-
 from typing import List
 from crewai import Agent, Task, Crew, Process
 from crewai.project import CrewBase, agent, crew, task
@@ -56,4 +54,3 @@ class CurrencyAnalystCrew():
             process=Process.sequential,
             verbose=True,
         )
-

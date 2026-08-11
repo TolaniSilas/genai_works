@@ -1,5 +1,3 @@
-# src/currency_analyst_crew/main.py
-
 import os
 from currency_analyst_crew.crew import CurrencyAnalystCrew
 
@@ -29,11 +27,11 @@ def run(inputs: dict):
 if __name__ == "__main__":
 
     inputs = {
-        "user_query": "what is the current exchange rate between USA currency and Germany currency? Also, provide insights on factors that might have influenced this rate recently."
+        "query": "what is the current exchange rate between USA currency and Germany currency? Also, provide insights on factors that might have influenced this rate recently."
         }
 
     # inputs = {
-    #     "user_query": "i would like to know all the supported currency codes."
+    #     "query": "i would like to know all the supported currency codes."
     # }
     
     
