@@ -1,8 +1,6 @@
-# src/currency_analyst_agent/api/main.py
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routes import currency
+from api.routes import currency
 import uvicorn
 
 
@@ -39,4 +37,3 @@ def health_check():
 if __name__ == "__main__":
 
     uvicorn.run(app)
-
